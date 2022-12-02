@@ -52,47 +52,47 @@ def part_2(opp,us):
     match opp:
         case "A":
             match us:
-                case "X": # +1
+                case "X":
                     # loss
                     return(loss + sissors)
-                case "Y": # +2
+                case "Y":
                     # draw
                     return(draw + rock)
-                case "Z": # +3
+                case "Z":
                     # win
                     return(win + paper)
 
         case "B":
             match us:
-                case "X": # +1
+                case "X":
                     # loss
                     return(loss + rock)
-                case "Y": # +2
+                case "Y":
                     # draw
                     return(draw + paper)
-                case "Z": # +3
+                case "Z":
                     # win
                     return(win + sissors)
         case "C":
             match us:
-                case "X": # +1
+                case "X":
                     # loss
                     return(loss + paper)
-                case "Y": # +2
+                case "Y":
                     # draw
                     return(draw + sissors)
-                case "Z": # +3
+                case "Z":
                     # win
                     return(win + rock)
 
 
-
-
-total = 0
+total_1 = 0
+total_2 = 0
 
 for line in lines:
-    #total += tictoe(line[0],line[2])
-    total += part_2(line[0],line[2])
+    total_1 += tictoe(line[0],line[2])
+    total_2 += part_2(line[0],line[2])
 
 
-print(total)
+print(total_1)
+print(total_2)
