@@ -1,4 +1,4 @@
-f = open("challange_text",'r')
+f = open("puzzle_input.txt",'r')
 lines = f.readlines()
 
 elves = []

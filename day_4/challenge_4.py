@@ -12,9 +12,7 @@ def enclose(num1,num2,num3,num4):
     return 0
 
 def overlap(num1,num2,num3,num4):
-    print(str(num1)+","+str(num2)+","+str(num3)+","+str(num4))
     if(num3 <= num2 and num4 >= num1) or (num3 <= num1 and num4 >= num1):
-        print("overlap!")
         return 1
     return 0
 
