@@ -1,9 +1,9 @@
 import re
 from collections import OrderedDict
-f = open(r'test.txt','r')
-#f = open(r'input.txt','r')
+#f = open(r'test.txt','r')
+f = open(r'input.txt','r')
 
-one = OrderedDict()
+one = []
 
 totalnum = 0
 
@@ -11,16 +11,22 @@ while 1:
     char = f.read(1)
     if not char:
         break
-    if len(one) == 4:
+    
+    if len(one) == 14:
         break
+    
     if char in one:
-        one.popitem(last=False)
+        for iter in range(0,len(one)):
+            if char in one:
+                one.pop(0)
 
-    one.update({char:''})
+    one.append(char)
     totalnum += 1
     print(one)
     print(totalnum)
 
-oneList = list(one.keys())
+
+
+print(list)
 
 f.close()
