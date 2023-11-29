@@ -1,6 +1,6 @@
 import re
-f = open(r'C:\Users\Anthony\Desktop\adventofcode2022\day_5\puzzle_input.txt','r')
-#f = open(r'C:\Users\Anthony\Desktop\adventofcode2022\day_5\test.txt','r')
+f = open(r'puzzle_input.txt','r')
+#f = open(r'test.txt','r')
 lines = f.readlines()
 
 stacks = []
@@ -31,17 +31,42 @@ def cleanstacks():
 
 
 def sort(nums):
-    print(nums)
+    for i in range(0,nums[0]):
+        stacks[nums[2] - 1].insert(0,stacks[nums[1] - 1].pop(0))
+    print(stacks)
+
+def sort2(nums):
+    temp = []
+    for i in range(0,nums[0]):
+        temp += stacks[nums[1] - 1].pop(0)
+    stacks[nums[2] - 1] = temp + stacks[nums[2] - 1]
+    print(stacks)
+    
 
 
-
+moves = []
 
 for i,line in enumerate(lines):
-    if line[0] == '[':
+    if '[' in line:
         stackbuild(line)
-    if line[0] == ' ':
+    elif line[0] == 'm':
         cleanstacks()
-    else:
         strnums = re.findall(r'\d+',line)
         nums = list(map(int, strnums))
-        sort(nums)
+        moves.append(nums)
+    else:
+        continue
+
+
+print (stacks)
+for move in moves:
+    #sort(move)
+    sort2(move)
+
+
+
+answer1 = ""
+for stack in stacks:
+    answer1 += stack[0]
+
+print(answer1)
